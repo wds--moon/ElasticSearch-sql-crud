@@ -1,7 +1,7 @@
 # ElasticSearch-sql-crud
-##使用ElasticSearch-sql简单操作es,提供sql方式提供查询功能
-##采用springboot2+ElasticSearch.6.4.3
-##ElasticSearch-sql需要到官网下载指定版本,然后自己编译打包到自己的私服,或者在插件包手动引入
+## 使用ElasticSearch-sql简单操作es,提供sql方式提供查询功能
+## 采用springboot2+ElasticSearch.6.4.3
+## ElasticSearch-sql需要到官网下载指定版本,然后自己编译打包到自己的私服,或者在插件包手动引入
 (```)
  <dependency>
              <groupId>org.nlpcn</groupId>
@@ -9,7 +9,7 @@
              <version>6.4.2.0</version>
 </dependency>
 (```)
-##数据创建文件脚本
+## 数据创建文件脚本
  <br/>CREATE TABLE `t_article` (
   <br/> `id` bigint(18) NOT NULL AUTO_INCREMENT,
    <br/>`title` varchar(200) DEFAULT NULL COMMENT '标题',
