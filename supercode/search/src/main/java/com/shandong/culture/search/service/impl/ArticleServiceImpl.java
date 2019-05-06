@@ -77,8 +77,9 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public ResponseVO findArticle(ArticleForm article) {
         StringBuilder sql = new StringBuilder("select * from").append(EsEnum.INDEX.getValue());
+        sql.append(" where  1=1 ");
         if (StringUtils.isNotEmpty(article.getTitle())) {
-            sql.append(" where title ='").append(article.getTitle()).append("'");
+            sql.append(" and title ='").append(article.getTitle()).append("'");
         }
         sql.append(" limit ").append(article.getPageNum()).append(" , ").append(article.getPageSize());
         SearchHits response = null;
@@ -94,11 +95,12 @@ public class ArticleServiceImpl implements ArticleService {
     public ResponseVO matchQueryArticle(ArticleForm article) {
 
         StringBuilder sql = new StringBuilder("select * from ").append(EsEnum.INDEX.getValue());
+        sql.append(" where  1=1 ");
         if (StringUtils.isNotEmpty(article.getTitle())) {
-            sql.append(" where title = matchQuery('").append(article.getTitle()).append("')");
+            sql.append(" and title = matchQuery('").append(article.getTitle()).append("')");
         }
         if (StringUtils.isNotEmpty(article.getContext())) {
-            sql.append(" where context = matchQuery('").append(article.getContext()).append("')");
+            sql.append(" and  context = matchQuery('").append(article.getContext()).append("')");
         }
         sql.append(" limit ").append(article.getPageNum()).append(" , ").append(article.getPageSize());
         SearchHits response = null;
